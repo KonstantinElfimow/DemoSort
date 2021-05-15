@@ -2,6 +2,7 @@ package ru.vsu.cs.vvp2020.g81.elfimov_k_d;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SortStateManager {
@@ -21,7 +22,7 @@ public class SortStateManager {
         setStates(states);
     }
     public void setStates(List<SortState> states) {
-        this.states = states;
+        this.states = new ArrayList<>();
         if (states != null) {
             this.states.addAll(states);
         }

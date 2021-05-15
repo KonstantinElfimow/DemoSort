@@ -3,7 +3,7 @@ package ru.vsu.cs.vvp2020.g81.elfimov_k_d;
 import java.util.Arrays;
 
 public class SortState {
-    public enum Type {State, Compare, Change};
+    public enum Type {State, Compare, Change}
     private Type type;
     private int[] array;
     private int left, right;

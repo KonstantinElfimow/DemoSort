@@ -3,7 +3,7 @@ import org.jetbrains.annotations.Nullable;
 import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.JTableUtils;
 import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.ArrayUtils;
 import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.SwingUtils;
-import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.DrawUtils;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -27,6 +27,8 @@ public class FrameMain extends JFrame {
     private JButton createArrayButton;
     private JSpinner arraySizeSpinner;
     private JPanel resultPanel;
+    private JCheckBox JTableCheckBox;
+    private JCheckBox graphics2DCheckBox;
     private Timer timer;
     private SortStateManager manager = new SortStateManager();
     private StateViewer viewer;
@@ -42,6 +44,8 @@ public class FrameMain extends JFrame {
         prevButton.setEnabled(mode == ModeType.Manual);
         nextButton.setEnabled(mode == ModeType.Manual);
         currentStateSlider.setEnabled(mode == ModeType.Manual);
+        JTableCheckBox.setEnabled(mode == ModeType.Init);
+        graphics2DCheckBox.setEnabled(mode == ModeType.Init);
     }
 
     public FrameMain() {
@@ -49,21 +53,40 @@ public class FrameMain extends JFrame {
         this.setContentPane(contentPane);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
-
-        SortTableModel tm = new SortTableModel();
-        viewer = tm;
-        JTable outputTable = new JTable(tm);
-        outputTable.setRowHeight(25);
-        outputTable.setDefaultRenderer(Integer.class, new SortCellRenderer());
-        resultPanel.setLayout(new GridLayout());
-        resultPanel.add(new JScrollPane(outputTable));
-
         JTableUtils.initJTableForArray(inputTable, 100, false,
                 true, false, true);
         inputTable.setRowHeight(25);
         JTableUtils.writeArrayToJTable(inputTable, new int[]{1, 2, 3, 4, 5});
         arraySizeSpinner.setModel(new SpinnerNumberModel(10, 1, 100, 1));
         setControlsEnable(ModeType.Init);
+
+        graphics2DCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (graphics2DCheckBox.isSelected()) {
+                    JTableCheckBox.setEnabled(false);
+                    SortDrawPanel panel = new SortDrawPanel();
+                    viewer = panel;
+                    resultPanel.setLayout(new GridLayout());
+                    resultPanel.add(new JScrollPane(panel));
+                }
+            }
+        });
+        JTableCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if (JTableCheckBox.isSelected()) {
+                    graphics2DCheckBox.setEnabled(false);
+                    SortTableModel tm = new SortTableModel();
+                    viewer = tm;
+                    JTable outputTable = new JTable(tm);
+                    outputTable.setRowHeight(25);
+                    outputTable.setDefaultRenderer(Integer.class, new SortCellRenderer());
+                    resultPanel.setLayout(new GridLayout());
+                    resultPanel.add(new JScrollPane(outputTable));
+                }
+            }
+        });
 
         createArrayButton.addActionListener(new ActionListener() {
             @Override

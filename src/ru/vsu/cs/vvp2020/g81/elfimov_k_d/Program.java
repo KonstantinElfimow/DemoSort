@@ -5,7 +5,7 @@ import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.SwingUtils;
 import java.util.Locale;
 
 public class Program {
-    public static void main(String[]args) throws Exception {
+    public static void main(String[]args) {
         Locale.setDefault(Locale.ROOT);
         SwingUtils.setDefaultFont("Microsoft Sans Serif", 18);
 
