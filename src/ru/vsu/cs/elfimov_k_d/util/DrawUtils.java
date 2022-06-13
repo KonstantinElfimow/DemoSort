@@ -1,4 +1,4 @@
-package ru.vsu.cs.vvp2020.g81.elfimov_k_d.util;
+package ru.vsu.cs.elfimov_k_d.util;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;

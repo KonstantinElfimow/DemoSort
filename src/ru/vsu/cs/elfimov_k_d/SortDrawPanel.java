@@ -1,4 +1,4 @@
-package ru.vsu.cs.vvp2020.g81.elfimov_k_d;
+package ru.vsu.cs.elfimov_k_d;
 
 import javax.swing.*;
 import java.awt.*;

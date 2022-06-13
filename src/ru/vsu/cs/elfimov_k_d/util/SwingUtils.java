@@ -1,4 +1,4 @@
-package ru.vsu.cs.vvp2020.g81.elfimov_k_d.util;
+package ru.vsu.cs.elfimov_k_d.util;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -157,9 +157,9 @@ public class SwingUtils {
             if (value != null && value instanceof FontUIResource) {
                 FontUIResource fr = (FontUIResource) value;
                 fr = new FontUIResource(
-                    (fontName != null) ? fontName : fr.getFontName(),
-                    fr.getStyle(),
-                    (size > 0) ? size : fr.getSize()
+                        (fontName != null) ? fontName : fr.getFontName(),
+                        fr.getStyle(),
+                        (size > 0) ? size : fr.getSize()
                 );
                 UIManager.put(entry.getKey(), fr);
             }

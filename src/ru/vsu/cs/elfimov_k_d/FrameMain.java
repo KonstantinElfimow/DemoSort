@@ -1,8 +1,8 @@
-package ru.vsu.cs.vvp2020.g81.elfimov_k_d;
+package ru.vsu.cs.elfimov_k_d;
 import org.jetbrains.annotations.Nullable;
-import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.JTableUtils;
-import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.ArrayUtils;
-import ru.vsu.cs.vvp2020.g81.elfimov_k_d.util.SwingUtils;
+import ru.vsu.cs.elfimov_k_d.util.ArrayUtils;
+import ru.vsu.cs.elfimov_k_d.util.JTableUtils;
+import ru.vsu.cs.elfimov_k_d.util.SwingUtils;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
